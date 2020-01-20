@@ -9,6 +9,9 @@ import org.junit.Test;
  * @Date: 2020/1/20 15:52
  */
 public class DecorationDemoTest {
+    /**
+     * 装饰者模式测试
+     */
     @Test
     public void test01(){
         Beverage beverage = new MilkTea();
