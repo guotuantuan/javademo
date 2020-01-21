@@ -34,6 +34,7 @@ public class ServerDemo {
 
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
 
+        //反馈给client 注意要加\n（换行符）
         bw.write("server========server accept message\n");
 
         bw.flush();
