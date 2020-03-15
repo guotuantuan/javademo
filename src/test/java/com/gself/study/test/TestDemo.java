@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 /**
  * @Author:gtt
@@ -16,12 +17,15 @@ public class TestDemo {
 
     @Test
     public void test01(){
-        Map<String,Object> map = new HashMap<>();
-        map.put("a","123");
-        Map<String,Object> map2 = new HashMap<>();
-        map2.put("b","123");
-        System.out.println(map.get("a")==map2.get("b"));
-        System.out.println(map.get("a").equals(map2.get("b")));
+        Random random = new Random();
+        int res = random.nextInt(2);
+        System.out.println(res);
+//        System.out.println(random.nextInt(2));
+//        System.out.println(random.nextInt(2));
+//        System.out.println(random.nextInt(2));
+//        System.out.println(random.nextInt(2));
+//        System.out.println(random.nextInt(2));
+//        System.out.println(random.nextInt(2));
 
     }
 }
