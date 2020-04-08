@@ -143,6 +143,9 @@ public class JedisDemo {
         System.out.println(jedis.get("balance"));
     }
 
+    /**
+     * jedisPool测试
+     */
     public void methodJedisPool(){
         JedisPool jedisPool = JedisPoolUtil.getJedisPoolInstance();
         Jedis jedis = null;
@@ -157,6 +160,61 @@ public class JedisDemo {
         }
 
     }
+
+    public void testLock(){
+        JedisPool jedisPool = JedisPoolUtil.getJedisPoolInstance();
+        Jedis jedis = null;
+        try{
+            jedis = jedisPool.getResource();
+            boolean lock = tryGetDistributeLock(jedis,"lockKey","abc",600000);
+            if(lock){
+                System.out.println("获取锁");
+                boolean lockRelease = releaseDistributedLock(jedis,"lockKey","abc");
+                System.out.println(lockRelease);
+            }else{
+                System.out.println("未获得锁");
+            }
+        }catch (Exception e){
+
+        }finally {
+            JedisPoolUtil.release(jedisPool,jedis);
+        }
+    }
+
+    /**
+     * 获取redis分布式锁   其中PX为毫秒  EX为秒
+     * @param jedis
+     * @param lockKey
+     * @param uniqueId
+     * @param expireTime
+     * @return
+     */
+    public boolean tryGetDistributeLock(Jedis jedis,String lockKey,String uniqueId,int expireTime){
+        String result = jedis.set(lockKey,uniqueId,"NX","PX",expireTime);
+        if(result.equals("OK")){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 释放分布式锁
+     * @param jedis
+     * @param lockKey
+     * @param uniqueId
+     * @return
+     */
+    public boolean releaseDistributedLock(Jedis jedis,String lockKey,String uniqueId){
+        String script = "if redis.call('get',KEYS[1])==ARGV[1] then return redis.call('del',KEYS[1]) else return 0 end";
+        Object result = jedis.eval(script,Collections.singletonList(lockKey),Collections.singletonList(uniqueId));
+        if(result.equals(1L)){
+            return true;
+        }
+        return false;
+    }
+
+
+
 
 
 

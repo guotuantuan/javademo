@@ -19,6 +19,7 @@ public class JedisPoolUtil {
             synchronized (JedisPoolUtil.class){
                 if(null==jedisPool){
                     JedisPoolConfig jedisPoolConfig = new JedisPoolConfig();
+
                     jedisPool = new JedisPool(jedisPoolConfig,"39.105.141.113",6379);
                 }
             }
