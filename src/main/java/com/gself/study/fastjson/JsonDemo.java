@@ -13,7 +13,16 @@ public class JsonDemo {
      * @param obj
      * @return
      */
-    public String ObjToString(Object obj){
+    public String objToString(Object obj){
+        return JSONObject.toJSONString(obj);
+    }
+
+    /**
+     * list转json字符串，会转成jsonArray形式的字符串
+     * @param obj
+     * @return
+     */
+    public String listToString(Object obj){
         return JSONObject.toJSONString(obj);
     }
 
