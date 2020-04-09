@@ -67,4 +67,10 @@ public class JedisDemoTest {
         jedisDemo.methodJedisPool();
     }
 
+    @Test
+    public void testLock(){
+        JedisDemo jedisDemo = new JedisDemo();
+        jedisDemo.testLock();
+    }
+
 }
