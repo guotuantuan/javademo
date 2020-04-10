@@ -1,4 +1,4 @@
-package com.gself.study.jbyte;
+package com.gself.study.jtype;
 
 import org.junit.Test;
 

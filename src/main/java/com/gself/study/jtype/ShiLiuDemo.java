@@ -1,4 +1,4 @@
-package com.gself.study.jbyte;
+package com.gself.study.jtype;
 
 /**
  * @Author:gtt
@@ -17,6 +17,9 @@ public class ShiLiuDemo {
         System.out.println(a);
         //java 用字符展示16进制
         String s = Integer.toHexString(a);
+        System.out.println(s);
+        //java 用大写字符展示16进制
+        System.out.println(s.toUpperCase());
         //java 将字符转为16进制（用int表示）
         System.out.println(Integer.parseInt(s,16));
         //java格式化输出16进制

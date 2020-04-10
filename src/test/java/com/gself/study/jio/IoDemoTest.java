@@ -21,4 +21,30 @@ public class IoDemoTest {
         IoDemo id = new IoDemo();
         id.fileReaderData("E:\\test\\test.txt");
     }
+
+    @Test
+    public void test3()throws Exception{
+        IoDemo id = new IoDemo();
+        id.fileBufferData("E:\\test\\test.txt");
+    }
+
+    @Test
+    public void test4()throws Exception{
+        IoDemo id = new IoDemo();
+        id.fileNioData("E:\\test\\test.txt");
+    }
+
+    @Test
+    public void test5()throws Exception{
+        IoDemo id = new IoDemo();
+        id.fileNioOut("E:\\test\\test.txt");
+    }
+
+    @Test
+    public void test6()throws Exception{
+        IoDemo id = new IoDemo();
+        id.fileNioInChar("E:\\test\\test.txt");
+    }
+
+
 }
