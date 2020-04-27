@@ -1,5 +1,8 @@
 package com.gself.study.jpattern.share;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @Author:gtt
  * @Description
@@ -15,5 +18,21 @@ public class ShareClient {
 
         fly = factory.factory(new Character('a'));
         fly.operation("Third Call");
+    }
+
+    public void test2(){
+        List<Character> list = new ArrayList<>();
+        list.add('a');
+        list.add('b');
+        list.add('c');
+        list.add('a');
+        list.add('b');
+
+        FlyWeightFactory factory = new FlyWeightFactory();
+        Flyweight f1 = factory.factory(list);
+
+        Flyweight f2 = factory.factory(list);
+        f1.operation("Composite Call");
+        System.out.println(f1==f2);
     }
 }

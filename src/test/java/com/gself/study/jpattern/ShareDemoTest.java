@@ -16,4 +16,9 @@ public class ShareDemoTest {
         ShareClient sc =  new ShareClient();
         sc.test();
     }
+    @Test
+    public void test2(){
+        ShareClient sc =  new ShareClient();
+        sc.test2();
+    }
 }

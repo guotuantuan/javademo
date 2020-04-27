@@ -1,6 +1,7 @@
 package com.gself.study.jpattern.share;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -10,6 +11,15 @@ import java.util.Map;
  */
 public class FlyWeightFactory {
     private Map<Character,Flyweight> files = new HashMap<>();
+
+
+    public Flyweight factory(List<Character> composState){
+        ConcreComposFlyWeight composFly = new ConcreComposFlyWeight();
+        for(Character c:composState){
+            composFly.add(c,this.factory(c));
+        }
+        return composFly;
+    }
 
     public Flyweight factory(Character state){
         Flyweight fly = files.get(state);
