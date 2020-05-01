@@ -20,6 +20,7 @@ public class CallableDemoTest {
             Future<Integer> r1 = exe.submit(new CallableDemo().new CallInner(i));
             Future<Integer> r2 = exe.submit(new CallableDemo().new CallInner(i));
             System.out.println("r1:" + r1.get());
+            System.out.println("r1:" + r1.get());
             System.out.println("r2:"+r2.get());
 
         }
