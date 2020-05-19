@@ -26,5 +26,11 @@ public class CallableDemoTest {
         }
     }
 
+    @Test
+    public void test2()throws Exception{
+        SubmitThreadDemo demo = new SubmitThreadDemo();
+        demo.test();
+    }
+
 
 }
