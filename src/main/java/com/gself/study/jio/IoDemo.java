@@ -146,8 +146,7 @@ public class IoDemo {
         //将读取ByteBuffer到CharBuffer中
         cd.decode(bbuf,cbuf,true);
         System.out.println(cbuf.position());
-        //将CharBuffer切换为读模式，输出刚才剩余的字符和后面新读入的字符
-        cbuf.flip();
+
         System.out.println(cbuf.toString());
 
     }
