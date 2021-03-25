@@ -4,9 +4,20 @@ public class AgDemo {
     public static void main(String[] args) {
         AgDemo agDemo = new AgDemo();
         int[] arr = {5, 4, 3, 2, 1};
-        agDemo.selectSort(arr);
+        agDemo.insertSort(arr);
         for (int i : arr) {
             System.out.println(i);
+        }
+    }
+
+    public void insertSort(int[] arr){
+        if (arr == null || arr.length < 2) {
+            return;
+        }
+        for(int i=1;i<arr.length;i++){
+            for(int j=i-1;j>=0 && arr[j]>arr[j+1];j--){
+                swap(arr,j,j+1);
+            }
         }
     }
 
