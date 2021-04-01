@@ -6,7 +6,8 @@ package com.gself.study.jdataStructure;
 public class QuickSortDemo {
     public static void main(String[] args) {
         QuickSortDemo th = new QuickSortDemo();
-        int []arr = {9,8,7,6,5,4,3,2,1};
+//        int []arr = {9,8,7,6,5,4,3,2,1};
+        int []arr = new int[]{3,2,4,4,6,7,8,4};
         th.quickSort(arr,0,arr.length-1);
         for(int i=0;i<arr.length;i++){
             System.out.print(arr[i]+" ");
@@ -14,7 +15,7 @@ public class QuickSortDemo {
     }
     public void quickSort(int[]arr,int l,int r){
         if(l<r){
-            int[]help = partition(arr,0,r);
+            int[]help = partition(arr,l,r);
             quickSort(arr,l,help[0]-1);
             quickSort(arr,help[1]+1,r);
         }
